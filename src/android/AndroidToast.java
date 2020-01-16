@@ -14,6 +14,9 @@ public class AndroidToast extends CordovaPlugin {
         if ("show".equals(action)) {
             show(args.getString(0), callbackContext);
             return true;
+        }else if ("add".equals(action)) {
+            show(args.getString(0), callbackContext);
+            return true;
         }
 
         return false;
@@ -27,4 +30,14 @@ public class AndroidToast extends CordovaPlugin {
             callbackContext.success(msg);
         }
     }
+
+    private void add(String msg, CallbackContext callbackContext) {
+        if (msg == null || msg.length() == 0) {
+            callbackContext.error("Empty message!");
+        } else {
+            Toast.makeText(webView.getContext(), "ADD :::::::: " + msg, Toast.LENGTH_LONG).show();
+            callbackContext.success(msg);
+        }
+    }
+
 }
