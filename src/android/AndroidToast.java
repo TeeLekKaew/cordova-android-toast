@@ -15,7 +15,7 @@ public class AndroidToast extends CordovaPlugin {
             show(args.getString(0), callbackContext);
             return true;
         }else if ("add".equals(action)) {
-            show(args.getString(0), callbackContext);
+            add(args.getString(0), callbackContext);
             return true;
         }
 
