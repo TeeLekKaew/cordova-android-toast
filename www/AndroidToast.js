@@ -28,9 +28,22 @@ AndroidToast.prototype.add = function(msg, onSuccess, onError) {
     exec(successCallback, errorCallback, 'AndroidToast', 'add', [msg]);
 };
 
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'AndroidToast', 'coolMethod', [arg0]);
+AndroidToast.prototype.coolMethod = function(msg, onSuccess, onError) {
+    var errorCallback = function(obj) {
+        onError(obj);
+    };
+
+    var successCallback = function(obj) {
+        onSuccess(obj);
+    };
+
+    exec(successCallback, errorCallback, 'AndroidToast', 'coolMethod', [msg]);
 };
+
+
+// exports.coolMethod = function (arg0, success, error) {
+//     exec(success, error, 'AndroidToast', 'coolMethod', [arg0]);
+// };
 
 if (typeof module != 'undefined' && module.exports) {
     module.exports = AndroidToast;
