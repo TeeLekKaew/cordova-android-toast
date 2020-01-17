@@ -28,6 +28,10 @@ AndroidToast.prototype.add = function(msg, onSuccess, onError) {
     exec(successCallback, errorCallback, 'AndroidToast', 'add', [msg]);
 };
 
+exports.coolMethod = function (arg0, success, error) {
+    exec(success, error, 'AndroidToast', 'coolMethod', [arg0]);
+};
+
 if (typeof module != 'undefined' && module.exports) {
     module.exports = AndroidToast;
 }
