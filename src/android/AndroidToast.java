@@ -21,6 +21,10 @@ public class AndroidToast extends CordovaPlugin {
             String message = args.getString(0);
             this.coolMethod(message, callbackContext);
             return true;
+        }else if (action.equals("coolMethod1")) {
+            String message = args.getString(0);
+            this.coolMethod1(message, callbackContext);
+            return true;
         }
 
         return false;
@@ -53,4 +57,12 @@ public class AndroidToast extends CordovaPlugin {
         }
     }
 
+    private void coolMethod1(String message, CallbackContext callbackContext) {
+        if (message != null && message.length() > 0) {
+            Toast.makeText(webView.getContext(), "Cool Method  1111111 " + message, Toast.LENGTH_LONG).show();
+            callbackContext.success(message);
+        } else {
+            callbackContext.error("Expected one non-empty string argument.");
+        }
+    }
 }
